@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+/* @plugin "daisyui" {
+  themes: light --default, dark --prefersdark, cupcake;
+} */
+
+@plugin "daisyui" {
+  themes: light --default;
+}
+
+
+/* custom css */
+.active {
+  color: red;
+}

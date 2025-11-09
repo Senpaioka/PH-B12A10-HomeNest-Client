@@ -6,7 +6,7 @@ import {registerOrLoginUser} from '../api/backend';
 function Login() {
 
 
-   const {signInWithGmail, isError} = useAuth();
+   const {signInWithGmail, loggingInVerifiedUser, isError} = useAuth();
    const navigate = useNavigate();
    const location = useLocation();
 
@@ -22,6 +22,23 @@ function Login() {
 
 
 
+   // login with email and password
+    function handleLoginWithEmailAndPassword(event){
+        event.preventDefault();
+
+        const form = event.target;
+        const email = event.target.email.value;
+        const password = event.target.password.value;
+
+        loggingInVerifiedUser(email, password)
+        .then(() => {
+        navigate(location.state || '/');
+        })
+
+        form.reset();
+    }
+
+
 
   return (
         <>
@@ -31,7 +48,7 @@ function Login() {
                 <h3 className='poppins-semibold text-3xl text-center p-10'>Login Your Account</h3>
                 <span className="block w-full h-px bg-gray-300"></span>
                 <div className="card-body">
-                    <form>
+                    <form onSubmit={handleLoginWithEmailAndPassword}>
                     <fieldset className="fieldset">
                         <label className="label">Email</label>
                         <input type="email" className="input" name="email" placeholder="Email" required/>

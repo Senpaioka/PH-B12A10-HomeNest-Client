@@ -1,4 +1,4 @@
-import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut} from "firebase/auth";
+import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut, createUserWithEmailAndPassword, updateProfile, sendEmailVerification, signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 import {AuthContext} from '../context/AuthContext';
 import {auth} from '../firebase/firebase.config';
 import { useState, useEffect } from 'react';
@@ -24,7 +24,76 @@ function AuthProvider({children}) {
         setIsLoading(true);
         setIsError('');
         return signInWithPopup(auth, provider)
-        .catch(error => setIsError(error.message))
+        .catch(error => {
+            setIsError(error.message);
+            throw error;
+        })
+        .finally(() => setIsLoading(false));
+    }
+
+
+
+    // register with email and password
+    // check for valid password
+    function validatePassword(password) {
+        const hasUpperCase = /[A-Z]/.test(password);
+        const hasLowerCase = /[a-z]/.test(password);
+        const hasMinLength = password.length >= 6;
+
+        if (!hasUpperCase) return "Password must include at least one uppercase letter.";
+        if (!hasLowerCase) return "Password must include at least one lowercase letter.";
+        if (!hasMinLength) return "Password must be at least 6 characters long.";
+
+        return null; 
+    }
+
+
+
+    function registerWithEmailAndPassword(name, url, email, password) {
+        
+        setIsError('');
+        setIsLoading(true);
+
+        const invalidPassword = validatePassword(password);
+        if (invalidPassword) {
+            setIsError(invalidPassword);
+            return Promise.reject(invalidPassword);
+            // return; <- also valid
+        }
+
+        return createUserWithEmailAndPassword(auth, email, password)
+        .then(result => {
+            // getting user
+            const currentUser = result.user;
+            // updating user info
+            return updateProfile(currentUser, {
+                displayName: name,
+                photoURL: url,
+            })
+            .then(() => {
+                setUser({...currentUser, displayName: name, photoURL: url});
+            })
+        })
+        .catch(error => {
+            setIsError(error.message);
+            throw error;
+        })
+        .finally(() => setIsLoading(false));
+    }
+
+
+
+    // logging with email and password
+    function loggingInVerifiedUser(email, password){
+
+        setIsError('');
+        setIsLoading(true);
+
+        return signInWithEmailAndPassword(auth, email, password)
+        .catch(error => {
+            setIsError(error.message);
+            throw error; // re throw
+        })
         .finally(() => setIsLoading(false));
     }
 
@@ -70,7 +139,9 @@ function AuthProvider({children}) {
         isLoading,
         isError,
         signInWithGmail,
-        logoutUser
+        logoutUser,
+        registerWithEmailAndPassword,
+        loggingInVerifiedUser
     }
 
 

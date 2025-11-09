@@ -49,7 +49,7 @@ function Navbar() {
                 (
                     <>
                     <div className="flex items-center gap-3 flex-wrap">
-                    <Link to='/registration' className="btn px-3 py-2">Register</Link>
+                    <Link to='/registration' className="btn px-3 py-2">SignUp</Link>
                     <Link to='/login' className="btn px-5 py-2">Login</Link>
                     </div>
                     </>
@@ -64,7 +64,9 @@ function Navbar() {
                         <ul
                         tabIndex="-1"
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                        <li><a onClick={logoutUser}>Logout</a></li>
+                        <li className="p-1">{user.displayName}</li>
+                        <li className="p-1">{user.email}</li>
+                        <li><a onClick={logoutUser} className="btn btn-soft">Logout</a></li>
                         </ul>
                     </div>   
                     </>

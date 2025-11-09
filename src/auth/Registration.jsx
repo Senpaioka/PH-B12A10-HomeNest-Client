@@ -1,11 +1,12 @@
 import { Link, useNavigate, useLocation } from "react-router";
 import {useAuth} from '../hooks/useAuth';
 import {registerOrLoginUser} from '../api/backend';
+import { auth } from "../firebase/firebase.config";
 
 
 function Registration() {
 
-   const {signInWithGmail, isError} = useAuth();
+   const {signInWithGmail, registerWithEmailAndPassword, logoutUser, isError} = useAuth();
    const navigate = useNavigate();
    const location = useLocation();
 
@@ -14,10 +15,38 @@ function Registration() {
       signInWithGmail()
       .then((result) => {
         const user = result.user;
+        // send to backend
         registerOrLoginUser(user);
         navigate(location.state || '/');
     })
-  }                                            
+  }
+  
+  
+  // register with email
+  function handleManualRegistration(event){
+    event.preventDefault();
+
+      const form = event.target;
+      const name = event.target.name.value;
+      const url = event.target.url.value;
+      const email = event.target.email.value;
+      const password = event.target.password.value;
+
+      registerWithEmailAndPassword(name, url, email, password)
+      .then(() => {
+        // getting user
+        const user = auth.currentUser;
+        // send to backend
+        registerOrLoginUser(user);
+        // reset form 
+        form.reset();
+        // logging out
+        logoutUser();
+        // redirect
+        navigate('/login');
+      })
+
+  }
 
 
    return (
@@ -29,7 +58,7 @@ function Registration() {
             <h3 className='poppins-semibold text-3xl text-center p-10'>Register Your Account</h3>
             <span className="block w-full h-px bg-gray-300"></span>
             <div className="card-body">
-                <form>
+                <form onSubmit={handleManualRegistration}>
                   <fieldset className="fieldset">
 
                     <label className="label">Your Name</label>

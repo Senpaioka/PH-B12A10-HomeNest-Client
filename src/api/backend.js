@@ -39,8 +39,34 @@ async function registerOrLoginUser(user) {
 }
 
 
+async function addingProperties(user, propertyInfo) {
+
+    if (!user) return;
+
+    const token = await user.accessToken;
+
+    try {
+        const response = await axios.post(`${BASE_URL}/properties`,
+            {
+                ...propertyInfo
+            },
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
+                }
+            }
+        );
+
+        return response.data;
+    }
+    catch(error) {
+        console.error("Error adding property to database:", error);
+        throw new Error("Something Went Wrong");
+    }
+}
 
 
 
-export {registerOrLoginUser};
+export {registerOrLoginUser, addingProperties};
 

@@ -15,6 +15,9 @@ const PropertyDetails = lazy(() => import('../pages/PropertyDetails'));
 
 import {PrivateRoute} from '../context/PrivateRoute';
 
+// api calling
+import {getAllProperties} from '../api/fetching';
+
 
 const router = createBrowserRouter([
   {
@@ -42,7 +45,8 @@ const router = createBrowserRouter([
             <Suspense fallback={<Spinner></Spinner>}>
                 <AllProperties></AllProperties>
             </Suspense>
-          )
+          ),
+          loader: getAllProperties,
         },
         {
           path: 'my-properties',

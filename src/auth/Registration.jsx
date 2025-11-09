@@ -1,5 +1,6 @@
 import { Link, useNavigate, useLocation } from "react-router";
 import {useAuth} from '../hooks/useAuth';
+import {registerOrLoginUser} from '../api/backend';
 
 
 function Registration() {
@@ -8,11 +9,13 @@ function Registration() {
    const navigate = useNavigate();
    const location = useLocation();
 
-   // login with gmail
+   // register with gmail
    function loginWithGmail(){
-    signInWithGmail()
-    .then(() => {
-      navigate(location.state || '/');
+      signInWithGmail()
+      .then((result) => {
+        const user = result.user;
+        registerOrLoginUser(user);
+        navigate(location.state || '/');
     })
   }                                            
 

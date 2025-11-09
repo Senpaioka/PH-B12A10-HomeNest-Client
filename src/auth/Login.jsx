@@ -1,5 +1,6 @@
 import { Link, useNavigate, useLocation } from "react-router";
 import {useAuth} from '../hooks/useAuth';
+import {registerOrLoginUser} from '../api/backend';
 
 
 function Login() {
@@ -10,12 +11,15 @@ function Login() {
    const location = useLocation();
 
    // login with gmail
-   function loginWithGmail(){
-    signInWithGmail()
-    .then(() => {
-      navigate(location.state || '/');
+    function loginWithGmail(){
+        signInWithGmail()
+        .then((result) => {
+        const user = result.user;
+        registerOrLoginUser(user);
+        navigate(location.state || '/');
     })
-  }  
+  }                                            
+
 
 
 

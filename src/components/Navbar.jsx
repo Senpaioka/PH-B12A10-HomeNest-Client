@@ -38,6 +38,11 @@ function Navbar() {
 
             <div className="navbar-end">
 
+                <div className="flex items-center gap-3 flex-wrap">
+                    <Link to='/registration' className="btn px-3 py-2">Register</Link>
+                    <Link to='/login' className="btn px-5 py-2">Login</Link>
+                </div>
+
                 {/* {
                 !user ?
                 (

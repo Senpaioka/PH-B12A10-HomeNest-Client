@@ -10,10 +10,10 @@ function Navbar() {
     const menuLink = (
     <>
         <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/all-products'>All Properties</NavLink></li>
-        <li><NavLink to='/my-products'>My Properties</NavLink></li>
-        <li><NavLink to='/bids'>My Ratings</NavLink></li>
-        <li><NavLink to='/create-product'>Add Properties</NavLink></li>
+        <li><NavLink to='/all-properties'>All Properties</NavLink></li>
+        <li><NavLink to='/my-properties'>My Properties</NavLink></li>
+        <li><NavLink to='/my-ratings'>My Ratings</NavLink></li>
+        <li><NavLink to='/add-property'>Add Properties</NavLink></li>
     </>
   )
 

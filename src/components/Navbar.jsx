@@ -1,6 +1,11 @@
 import { NavLink, Link } from "react-router";
+import { useAuth } from "../hooks/useAuth";
+import defaultPic from '../assets/photos/dp.jpg';
+
 
 function Navbar() {
+
+    const { user, logoutUser } = useAuth();
 
     const menuLink = (
     <>
@@ -38,18 +43,14 @@ function Navbar() {
 
             <div className="navbar-end">
 
-                <div className="flex items-center gap-3 flex-wrap">
-                    <Link to='/registration' className="btn px-3 py-2">Register</Link>
-                    <Link to='/login' className="btn px-5 py-2">Login</Link>
-                </div>
 
-                {/* {
+                {
                 !user ?
                 (
                     <>
                     <div className="flex items-center gap-3 flex-wrap">
-                    <Link to='/registration' className="magic-bg text-white px-3 py-2">Register</Link>
-                    <Link to='/login' className="magic-bg text-white px-5 py-2">Login</Link>
+                    <Link to='/registration' className="btn px-3 py-2">Register</Link>
+                    <Link to='/login' className="btn px-5 py-2">Login</Link>
                     </div>
                     </>
                 ) : (
@@ -63,12 +64,12 @@ function Navbar() {
                         <ul
                         tabIndex="-1"
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                        <li><a>Logout</a></li>
+                        <li><a onClick={logoutUser}>Logout</a></li>
                         </ul>
                     </div>   
                     </>
                 )
-                } */}
+                }
 
             </div>
         </div>

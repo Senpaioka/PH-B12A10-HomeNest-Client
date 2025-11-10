@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 
 function Card({ propertyInfo }) {
   
@@ -54,10 +56,7 @@ function Card({ propertyInfo }) {
 
         {/* Action Button */}
         <div className="mt-4">
-          <button
-            className="btn btn-primary w-full text-white">
-            See Details
-          </button>
+          <Link to={`/details/${propertyInfo._id}`} className="btn btn-primary w-full text-white">See Details</Link>
         </div>
       </div>
     </div>

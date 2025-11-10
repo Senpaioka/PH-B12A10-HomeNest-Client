@@ -40,5 +40,26 @@ async function getMyProperties(user) {
 
 
 
+async function getPropertyDetails(user, propertyId) {
 
-export {getAllProperties, getMyProperties};
+    try {
+        const response = await axios.get(`${BASE_URL}/properties/${propertyId}`,
+            {
+                headers: {
+                    Authorization: `Bearer ${user.accessToken}`,
+                }
+            }
+        );
+
+        return response.data;
+    
+    } catch(error) {
+        console.error("Error loading property details.", error);
+        throw new Error('Failed to load property details.')
+    } 
+}
+
+
+
+
+export {getAllProperties, getMyProperties, getPropertyDetails};

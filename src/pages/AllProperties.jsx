@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router";
 import Card from "../components/Card";
 
 function AllProperties() {
+
   const data = useLoaderData();
 
   return (
@@ -13,7 +14,7 @@ function AllProperties() {
         {
           data.map((item) => (<Card propertyInfo={item} key={item._id} />))
         }
-        
+
       </div>
     </div>
   );

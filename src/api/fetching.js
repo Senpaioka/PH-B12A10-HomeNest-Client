@@ -55,11 +55,24 @@ async function getPropertyDetails(user, propertyId) {
     
     } catch(error) {
         console.error("Error loading property details.", error);
-        throw new Error('Failed to load property details.')
+        throw new Error('Failed to load property details.');
+    } 
+}
+
+
+
+async function getUserFeedbacks(propertyId) {
+
+    try {
+        const response = await axios.get(`${BASE_URL}/feedback/${propertyId}`);
+        return response.data;
+    }catch(error) {
+        console.error("Error loading user feedbacks.", error);
+        throw new Error('Failed to load user feedbacks.');
     } 
 }
 
 
 
 
-export {getAllProperties, getMyProperties, getPropertyDetails};
+export {getAllProperties, getMyProperties, getPropertyDetails, getUserFeedbacks};

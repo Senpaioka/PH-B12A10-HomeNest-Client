@@ -68,5 +68,34 @@ async function addingProperties(user, propertyInfo) {
 
 
 
-export {registerOrLoginUser, addingProperties};
+async function addingUserRating(user, userFeedback) {
+
+    if (!user) return;
+    const token = await user.accessToken;
+    
+    try {
+        const response = await axios.post(`${BASE_URL}/feedback`, 
+            {
+                ...userFeedback
+            },
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
+                }
+            }
+        );
+
+        return response.data;
+    }
+    catch(error) {
+        console.error("Error adding feedback to database:", error);
+        throw new Error("Something Went Wrong");
+    }
+
+}
+
+
+
+export {registerOrLoginUser, addingProperties, addingUserRating};
 

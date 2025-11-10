@@ -3,15 +3,22 @@ import {useParams} from 'react-router';
 import {getPropertyDetails} from '../api/fetching';
 import {useAuth} from '../hooks/useAuth';
 import { useNavigate } from 'react-router';
+import {getUserFeedbacks} from '../api/fetching';
 import Spinner from '../components/Spinner';
+import RatingModal from '../components/RatingModal';
+import Comment from '../components/Comment';
 
 
 function PropertyDetails() {
 
   const {user} = useAuth();
+  // const comments = useLoaderData();
   const {propertyId} = useParams();
   const [property, setProperty] = useState(null);
+  const [comments, setComments] = useState([]);
+  const [refresh, setRefresh] = useState(false);
   const navigate = useNavigate();
+
 
   useEffect(() => {
 
@@ -32,11 +39,41 @@ function PropertyDetails() {
   },[user, propertyId]);
 
 
+  useEffect(() => {
+    async function fetchingUserComment() {
+      
+      if (!propertyId) return;
+
+      try {
+        const data = await getUserFeedbacks(propertyId);
+        setComments(data);
+        setRefresh(prev => !prev); // triggering re-fetch
+      } catch(error) {
+        console.error('Error fetching user comments', error);
+      }
+    }
+    fetchingUserComment();    
+  },[propertyId, refresh]);
+
+
   if (!property) return <Spinner></Spinner>;
 
 
 
+  const openRatingModal = () => {
+    document.getElementById("rating-modal").showModal();
+  };
+
   return (
+
+
+    
+    
+    <>
+    {/* rating-modal   */}
+    <RatingModal propertyId={property._id}></RatingModal>
+
+
     <div className="bg-base-200 min-h-screen py-10">
       <div className="w-11/12 md:w-10/12 mx-auto">
         {/* Back Button */}
@@ -99,8 +136,12 @@ function PropertyDetails() {
             </div>
 
             <div className="card-actions justify-end mt-6">
-              <button className="btn btn-primary text-white">Buy Now</button>
-              <button className="btn btn-outline">Contact Seller</button>
+              {
+                user.email === property.userInfo.email ? 
+                <button className="btn btn-primary text-white">Edit</button>  
+                : 
+                <button onClick={openRatingModal} className="btn btn-primary text-white">Rate This</button>
+              }
             </div>
           </div>
         </div>
@@ -133,9 +174,32 @@ function PropertyDetails() {
             <button className="btn btn-primary text-white">Message Seller</button>
           </div>
         </div>
+
+
+          {/* Comments Section */}
+        <div className="card bg-base-100 shadow-md p-6">
+          <h3 className="text-2xl font-bold text-primary mb-4">Comments ({comments.length})</h3>
+
+          <div className="space-y-4">
+            {comments.length > 0 ? (
+              comments.map((comment) => (
+              <Comment comment={comment} key={comment._id}></Comment>  
+              ))
+            ) : (
+              <p className="text-gray-500 text-center">No comments yet. Be the first!</p>
+            )}
+          </div>
+        </div>
+
+
       </div>
     </div>
+    </>
   );
 }
 
 export default PropertyDetails;
+
+
+
+

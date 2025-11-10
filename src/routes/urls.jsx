@@ -84,7 +84,10 @@ const router = createBrowserRouter([
                 <PropertyDetails></PropertyDetails>
             </Suspense>
           </PrivateRoute>
-          )
+          ),
+          // loader: async({params}) => {
+          //   return getUserFeedbacks(params.propertyId);
+          // },
         },
     ]
   },

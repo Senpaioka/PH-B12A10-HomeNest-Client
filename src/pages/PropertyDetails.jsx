@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router';
 import {getUserFeedbacks} from '../api/fetching';
 import Spinner from '../components/Spinner';
 import RatingModal from '../components/RatingModal';
+import SellerModal from '../components/SellerModal';
 import Comment from '../components/Comment';
 
 
@@ -64,15 +65,19 @@ function PropertyDetails() {
     document.getElementById("rating-modal").showModal();
   };
 
+
+  const openSellerModal = () => {
+    document.getElementById("seller-modal").showModal();
+  }
+
   return (
 
-
-    
-    
     <>
     {/* rating-modal   */}
     <RatingModal propertyId={property._id}></RatingModal>
 
+    {/* seller-modal  */}
+    <SellerModal sellerInfo={property.userInfo}></SellerModal>
 
     <div className="bg-base-200 min-h-screen py-10">
       <div className="w-11/12 md:w-10/12 mx-auto">
@@ -159,7 +164,7 @@ function PropertyDetails() {
           <div className="flex-1 text-center sm:text-left">
             <h1>Seller Info:</h1>
             <h3 className="text-xl font-bold text-primary mb-1">{property.userInfo.name}</h3>
-            <p className="text-gray-600 mb-1">{property.userInfo.email}</p>
+            {/* <p className="text-gray-600 mb-1">{property.userInfo.email}</p> */}
             <p className="text-gray-500">
               Member Since:{" "}
                 {new Date(property.created_at).toLocaleString("en-US", {
@@ -170,8 +175,8 @@ function PropertyDetails() {
 
           {/* Actions */}
           <div className="flex flex-col sm:flex-row gap-3">
-            <button className="btn btn-outline">View Profile</button>
-            <button className="btn btn-primary text-white">Message Seller</button>
+            <button onClick={openSellerModal} className="btn btn-outline">View Profile</button>
+            {/* <button className="btn btn-primary text-white">Message Seller</button> */}
           </div>
         </div>
 

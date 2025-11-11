@@ -82,7 +82,7 @@ const router = createBrowserRouter([
           element: (
           <PrivateRoute>
             <Suspense fallback={<Spinner></Spinner>}>
-                <PropertyDetails></PropertyDetails>
+                <PropertyDetails></PropertyDetails> {/* force re-render */}
             </Suspense>
           </PrivateRoute>
           ),

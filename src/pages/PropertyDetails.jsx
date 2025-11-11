@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import {Link, useParams} from 'react-router';
 import {getPropertyDetails} from '../api/fetching';
 import {useAuth} from '../hooks/useAuth';
-import { useNavigate } from 'react-router';
+import { useNavigate, useLocation } from 'react-router';
 import {getUserFeedbacks} from '../api/fetching';
 import Spinner from '../components/Spinner';
 import RatingModal from '../components/RatingModal';
@@ -13,12 +13,13 @@ import Comment from '../components/Comment';
 function PropertyDetails() {
 
   const {user} = useAuth();
-  // const comments = useLoaderData();
   const {propertyId} = useParams();
   const [property, setProperty] = useState(null);
   const [comments, setComments] = useState([]);
   const [refresh, setRefresh] = useState(false);
+  const location = useLocation();
   const navigate = useNavigate();
+
 
 
   useEffect(() => {
@@ -33,11 +34,15 @@ function PropertyDetails() {
       } catch(error) {
         console.error('Error fetching property details', error);
       }
-
+      
     }
 
     fetchingPropertyDetails();
-  },[user, propertyId]);
+    
+  },[user, propertyId, location.key]);
+
+
+
 
 
   useEffect(() => {

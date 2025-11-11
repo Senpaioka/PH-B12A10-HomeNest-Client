@@ -43,15 +43,17 @@ const [propertyInfo, setPropertyInfo] = useState({});
   },[user, propertyId]);
 
 
-
-
-  const handleSubmit = (e) => {
+  
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // patching update property
-    updateProperty(user, propertyInfo, propertyId);
-    navigate('/my-properties');
-  };
 
+    try {
+      await updateProperty(user, propertyInfo, propertyId);
+      navigate(`/details/${propertyId}`);
+    }catch(error) {
+      console.error('Error Updating', error);
+    }
+  }
 
 
 

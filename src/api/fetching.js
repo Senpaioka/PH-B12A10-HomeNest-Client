@@ -74,6 +74,25 @@ async function getUserFeedbacks(propertyId) {
 
 
 
+async function getMyRatings (user) {
+    
+    try {
+        const response = await axios.get(`${BASE_URL}/my-feedbacks`, {
+            headers: {
+                Authorization: `Bearer ${user.accessToken}`,
+            }
+        });
+
+        return response.data;
+    }
+    catch(error) {
+        console.error("Error loading ratings.", error);
+        throw new Error('Failed to load ratings.');
+    }
+}
 
 
-export {getAllProperties, getMyProperties, getPropertyDetails, getUserFeedbacks};
+
+
+
+export {getAllProperties, getMyProperties, getPropertyDetails, getUserFeedbacks, getMyRatings};

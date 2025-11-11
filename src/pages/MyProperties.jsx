@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import {useAuth} from '../hooks/useAuth';
 import {getMyProperties} from '../api/fetching';
+import MyCard from "../components/MyCard";
 
 
 function MyProperties() {
@@ -26,11 +27,16 @@ function MyProperties() {
   },[user]);
 
 
-  console.log(property)
 
   return (
-     <div>
+     <div className="w-10/12 mx-auto">
        MyProperties component
+
+       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {
+        property.map(item => <MyCard propertyInfo={item} key={item._id}></MyCard>)
+        }
+       </div>
      </div>
   );
 }

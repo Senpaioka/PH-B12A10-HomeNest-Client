@@ -61,6 +61,24 @@ const [propertyInfo, setPropertyInfo] = useState({});
 
     <div className="min-h-screen bg-base-200 py-10 px-5">
       <div className="max-w-xl mx-auto bg-base-100 shadow-xl p-8 rounded-lg">
+
+        <button
+          onClick={() => navigate(-1)}
+          className="btn btn-outline mb-6 flex items-center gap-2"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="2"
+            stroke="currentColor"
+            className="w-5 h-5"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+          </svg>
+          Back
+        </button>
+
         <h2 className="text-3xl font-bold text-center text-primary mb-8">
           Edit Property
         </h2>

@@ -60,8 +60,6 @@ function AddProperty() {
   };
 
 
-  // if (!isLoading) return console.log(message);
-
   return (
       <div className="min-h-screen bg-base-200 py-10 px-5">
         <div className="max-w-xl mx-auto bg-base-100 shadow-xl p-8 rounded-lg">

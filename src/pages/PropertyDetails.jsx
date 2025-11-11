@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import {useParams} from 'react-router';
+import {Link, useParams} from 'react-router';
 import {getPropertyDetails} from '../api/fetching';
 import {useAuth} from '../hooks/useAuth';
 import { useNavigate } from 'react-router';
@@ -143,7 +143,7 @@ function PropertyDetails() {
             <div className="card-actions justify-end mt-6">
               {
                 user.email === property.userInfo.email ? 
-                <button className="btn btn-primary text-white">Edit</button>  
+                <Link to={`/edit/${property._id}`} className="btn btn-primary text-white">Edit</Link>  
                 : 
                 <button onClick={openRatingModal} className="btn btn-primary text-white">Rate This</button>
               }

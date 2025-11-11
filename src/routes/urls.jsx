@@ -12,6 +12,7 @@ const AllProperties = lazy(() => import('../pages/AllProperties'));
 const MyProperties = lazy(() => import('../pages/MyProperties'));
 const MyRatings = lazy(() => import('../pages/MyRatings'));
 const PropertyDetails = lazy(() => import('../pages/PropertyDetails'));
+const PropertyEdit = lazy(() => import('../pages/PropertyEdit'));
 
 import {PrivateRoute} from '../context/PrivateRoute';
 
@@ -88,6 +89,16 @@ const router = createBrowserRouter([
           // loader: async({params}) => {
           //   return getUserFeedbacks(params.propertyId);
           // },
+        },
+        {
+          path: 'edit/:propertyId',
+          element: (
+          <PrivateRoute>
+            <Suspense fallback={<Spinner></Spinner>}>
+                <PropertyEdit></PropertyEdit>
+            </Suspense>
+          </PrivateRoute>
+          ),
         },
     ]
   },

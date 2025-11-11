@@ -75,4 +75,5 @@ async function getUserFeedbacks(propertyId) {
 
 
 
+
 export {getAllProperties, getMyProperties, getPropertyDetails, getUserFeedbacks};

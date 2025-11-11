@@ -31,4 +31,29 @@ async function updateProperty(user, updatedInfo, propertyId) {
 
 
 
-export {updateProperty};
+
+
+async function deleteProperty(user, propertyId) {
+
+    try {
+        const response = await axios.delete(`${BASE_URL}/properties/${propertyId}`, 
+            {
+                headers: {
+                    Authorization: `Bearer ${user.accessToken}`,
+                }
+            }
+        );
+
+        return response.data;
+        
+    } catch (error) {
+        console.error("Error deleting properties data", error);
+        throw new Error("failed to delete property.");
+    }
+}
+
+
+
+
+
+export {updateProperty, deleteProperty};

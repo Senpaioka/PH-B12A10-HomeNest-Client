@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 import {addingProperties} from '../api/backend';
+import { useNavigate } from "react-router";
 
 
 
@@ -19,6 +20,7 @@ function AddProperty() {
   const [formData, setFormData] = useState(initialData);
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
 
   // handle input changes
@@ -45,6 +47,9 @@ function AddProperty() {
 
       // reset form
       setFormData(initialData);
+
+      // redirect
+      navigate('/my-properties');
 
     }catch(error) {
 

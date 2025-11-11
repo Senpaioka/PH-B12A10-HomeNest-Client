@@ -1,8 +1,10 @@
-
 import { Link } from "react-router";
 
+
 function MyCard({ propertyInfo, onDelete }) {
+
   return (
+
     <div className="card bg-base-100 shadow-md hover:shadow-xl transition-all duration-300 rounded-xl overflow-hidden">
       {/* Image Section */}
       <figure className="relative">

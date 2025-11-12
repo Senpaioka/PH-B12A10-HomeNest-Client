@@ -92,7 +92,34 @@ async function getMyRatings (user) {
 }
 
 
+async function getSortedProperties(sortBy, orderBy) {
+  try {
+
+    const response = await axios.get(`${BASE_URL}/filtered?sort=${sortBy}&order=${orderBy}`);
+    return response.data;
+
+  } catch (error) {
+    console.error("Sorting failed.", error);
+    throw new Error("Failed to load sorted properties"); 
+  }
+}
+
+
+async function getSearchResult(query) {
+
+    try {
+
+        const response = await axios.get(`${BASE_URL}/searched?q=${encodeURIComponent(query)}`);
+        return response.data;
+
+    } catch (error) {
+        console.error("Search failed", error);
+        throw new Error("Failed to load searched properties"); 
+    }
+}
 
 
 
-export {getAllProperties, getMyProperties, getPropertyDetails, getUserFeedbacks, getMyRatings};
+
+
+export {getAllProperties, getMyProperties, getPropertyDetails, getUserFeedbacks, getMyRatings, getSortedProperties, getSearchResult};

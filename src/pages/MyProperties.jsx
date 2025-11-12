@@ -80,50 +80,24 @@ function MyProperties() {
           }
         }
       });
-
-    // try {
-    //   const response = await deleteProperty(user, getId);
-
-    //   if (response.result.deletedCount == 1) {
-    //     // Update state to remove the deleted property
-    //     setProperty(prev => prev.filter(p => p._id.toString() !== getId));
-    //   }
-
-    // } catch (error) {
-    //   console.error('Error deleting property!', error);
-    // }
   }
 
 
 
-//   async function handleDeleteProperty() {
-//   if (!user) {
-//     alert("You must be logged in to delete a property.");
-//     return;
-//   }
-
-//   const confirmed = confirm("Are you sure you want to delete this property?");
-//   if (!confirmed) return;
-
-//   try {
-//     const res = await deleteProperty(user, _id);
-
-//     if (res.ok) {
-//       alert("Property deleted successfully!");
-//       // Optionally refresh or update UI:
-//       // e.g. remove from local state
-//     } else {
-//       console.error("Failed to delete property:", res.statusText);
-//       alert("Something went wrong while deleting!");
-//     }
-
-//   } catch (error) {
-//     console.error("Error deleting property!", error);
-//     alert("Server error while deleting property.");
-//   }
-// }
-
-
+  if (property.length < 1) {
+    return (
+        <div className="w-10/12 mx-auto mt-[50px]">
+          <div className="flex justify-center items-center">
+            <div className="bg-base-100 p-6 text-center">
+              <h2 className="text-lg font-bold text-gray-700">No items found</h2>
+              <p className="text-gray-500 mt-2">
+                Try adding a property to see it here!
+              </p>
+            </div>
+          </div>
+        </div>
+    );
+  }
 
 
   return (

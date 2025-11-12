@@ -2,6 +2,7 @@ import { Link, useNavigate, useLocation } from "react-router";
 import {useAuth} from '../hooks/useAuth';
 import {registerOrLoginUser} from '../api/backend';
 import { auth } from "../firebase/firebase.config";
+import Swal from 'sweetalert2';
 
 
 function Registration() {
@@ -18,6 +19,14 @@ function Registration() {
         // send to backend
         registerOrLoginUser(user);
         navigate(location.state || '/');
+
+        Swal.fire({
+          title: "Success !!",
+          text: "Welcome Abort.",
+          icon: "success",
+          theme: 'auto'
+        });
+
     })
   }
   
@@ -44,6 +53,14 @@ function Registration() {
         logoutUser();
         // redirect
         navigate('/login');
+
+        Swal.fire({
+          title: "Registration Successful !!",
+          text: "Welcome Abort! Please Login to Continue.",
+          icon: "success",
+          theme: 'auto'
+        });
+
       })
 
   }

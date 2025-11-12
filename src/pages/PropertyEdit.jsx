@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { useParams, useNavigate } from "react-router";
+import Swal from 'sweetalert2';
 
 
 // api calling
@@ -50,7 +51,28 @@ const [propertyInfo, setPropertyInfo] = useState({});
     try {
       await updateProperty(user, propertyInfo, propertyId);
       navigate(`/details/${propertyId}`);
+
+      // alert
+      Swal.fire({
+        position: "top-end",
+        icon:  "success",
+        title: "Property updated successfully!",
+        theme: "auto",
+        showConfirmButton: false,
+        timer: 1500
+      });
+
     }catch(error) {
+
+      Swal.fire({
+        position: "top-end",
+        icon:  "error",
+        title: "Failed to update!",
+        theme: "auto",
+        showConfirmButton: false,
+        timer: 1500
+      });
+
       console.error('Error Updating', error);
     }
   }

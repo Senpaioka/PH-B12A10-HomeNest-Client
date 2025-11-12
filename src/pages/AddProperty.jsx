@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 import {addingProperties} from '../api/backend';
 import { useNavigate } from "react-router";
+import Swal from 'sweetalert2';
 
 
 
@@ -18,8 +19,6 @@ function AddProperty() {
 
   const { user } = useAuth();
   const [formData, setFormData] = useState(initialData);
-  const [message, setMessage] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
 
@@ -33,33 +32,44 @@ function AddProperty() {
   // handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsLoading(true);
-    setMessage(null);
 
     // send to backend
     try {
-      const response = addingProperties(user, formData);
       
-      setMessage({
-        type: "success",
-        text: response.message || "Property added successfully!",
-      });
-
+      addingProperties(user, formData);
+      
       // reset form
       setFormData(initialData);
+
+      // alert
+      Swal.fire({
+        position: "top-end",
+        icon:  "success",
+        title: "Property added successfully!",
+        theme: "auto",
+        showConfirmButton: false,
+        timer: 1500
+      });
 
       // redirect
       navigate('/my-properties');
 
+      
+
     }catch(error) {
 
-      setMessage({
-        type: "error",
-        text: error.response?.data?.message || error.message,
+      // alert
+      Swal.fire({
+        position: "top-end",
+        icon:  "error",
+        title: "Failed to add property!",
+        theme: "auto",
+        showConfirmButton: false,
+        timer: 1500
       });
 
-    }finally{
-      setIsLoading(false);
+      console.error("Property Not Submitted", error);
+
     }
 
   };

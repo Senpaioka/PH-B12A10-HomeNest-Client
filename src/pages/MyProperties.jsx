@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import {useAuth} from '../hooks/useAuth';
 import MyCard from "../components/MyCard";
+import Swal from 'sweetalert2'
 
 // api calling
 import {getMyProperties} from '../api/fetching';
@@ -36,17 +37,61 @@ function MyProperties() {
   async function handleDeleteProperty(getId) {
     if (!user) return;
 
-    try {
-      const response = await deleteProperty(user, getId);
+    // alert
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        theme: "auto",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then( async(result) => {
+        if (result.isConfirmed) {
 
-      if (response.result.deletedCount == 1) {
-        // Update state to remove the deleted property
-        setProperty(prev => prev.filter(p => p._id.toString() !== getId));
-      }
+        try {
+            const response = await deleteProperty(user, getId);
+            if (response.result.deletedCount == 1) {
+              // Update state to remove the deleted property
+              setProperty(prev => prev.filter(p => p._id.toString() !== getId));
 
-    } catch (error) {
-      console.error('Error deleting property!', error);
-    }
+              // re-confirming deletion
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your property has been deleted.",
+                icon: "success",
+                theme: "auto",
+                timer: 1500,
+                showConfirmButton: false,
+                position: "top-end",
+              });
+            }
+          } 
+          catch (error) {
+
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Something went wrong while deleting!",
+            });
+            
+            console.error('Error deleting property!', error);
+          }
+        }
+      });
+
+    // try {
+    //   const response = await deleteProperty(user, getId);
+
+    //   if (response.result.deletedCount == 1) {
+    //     // Update state to remove the deleted property
+    //     setProperty(prev => prev.filter(p => p._id.toString() !== getId));
+    //   }
+
+    // } catch (error) {
+    //   console.error('Error deleting property!', error);
+    // }
   }
 
 

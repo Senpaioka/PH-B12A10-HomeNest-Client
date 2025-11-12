@@ -1,6 +1,7 @@
 import { Link, useNavigate, useLocation } from "react-router";
 import {useAuth} from '../hooks/useAuth';
 import {registerOrLoginUser} from '../api/backend';
+import Swal from 'sweetalert2';
 
 
 function Login() {
@@ -17,6 +18,14 @@ function Login() {
         const user = result.user;
         registerOrLoginUser(user);
         navigate(location.state || '/');
+
+        Swal.fire({
+          title: "Success !!",
+          text: "Welcome Abort.",
+          icon: "success",
+          theme: 'auto'
+        });
+
     })
   }                                            
 
@@ -32,10 +41,18 @@ function Login() {
 
         loggingInVerifiedUser(email, password)
         .then(() => {
-        navigate(location.state || '/');
-        })
-
         form.reset();
+        navigate(location.state || '/');
+
+        Swal.fire({
+          title: "Success !!",
+          text: "Welcome Abort.",
+          icon: "success",
+          theme: 'auto'
+        });
+
+      })
+
     }
 
 

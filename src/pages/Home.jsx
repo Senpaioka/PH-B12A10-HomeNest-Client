@@ -1,3 +1,4 @@
+import HeroSlider from "../components/HeroSlider";
 
 function Home() {
   return (
@@ -7,6 +8,7 @@ function Home() {
 
      <div>
        Home component
+       <HeroSlider></HeroSlider>
      </div>
      </>
   );

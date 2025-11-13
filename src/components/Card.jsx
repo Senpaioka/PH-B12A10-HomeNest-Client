@@ -31,6 +31,12 @@ function Card({ propertyInfo }) {
           {propertyInfo.location}
         </p>
 
+        <p className="text-gray-500 text-sm flex items-center gap-1">
+          {propertyInfo.description.length > 30
+            ? propertyInfo.description.slice(0, 100) + "..."
+            : propertyInfo.description}
+        </p>
+
         {/* Price */}
         <p className="text-lg font-bold text-amber-500 mt-2">
           ${propertyInfo.price.toLocaleString()}

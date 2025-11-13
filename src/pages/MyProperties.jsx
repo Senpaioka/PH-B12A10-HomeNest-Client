@@ -6,11 +6,13 @@ import Swal from 'sweetalert2'
 // api calling
 import {getMyProperties} from '../api/fetching';
 import { deleteProperty } from "../api/updating";
+import Spinner from "../components/Spinner";
 
 function MyProperties() {
 
   const {user} = useAuth();
   const [property, setProperty] = useState([]);
+  const [loading, setLoading] = useState(false);
 
 
   useEffect(() => {
@@ -20,10 +22,14 @@ function MyProperties() {
       if (!user) return;
 
       try {
+        setLoading(true);
         const data = await getMyProperties(user);
         setProperty(data);
       }catch(error) {
         console.error('Error fetching properties!', error);
+      }
+      finally {
+        setLoading(false);
       }
 
     };
@@ -82,6 +88,11 @@ function MyProperties() {
       });
   }
 
+
+
+  if (loading) {
+    return <Spinner></Spinner>
+  }
 
 
   if (property.length < 1) {

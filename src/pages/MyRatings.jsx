@@ -2,17 +2,19 @@ import { useState, useEffect } from 'react';
 import {useAuth} from '../hooks/useAuth';
 import {getMyRatings} from '../api/fetching';
 import ReviewCard from '../components/ReviewCard';
+import Spinner from '../components/Spinner';
 
 function MyRatings() {
 
   const {user} = useAuth();
     const [myRatings, setMyRatings] = useState([]);
+    const [loading, setLoading] = useState(false);
 
 
   useEffect(() => {
 
     async function fetchingMyRatings() {
-
+      setLoading(true);
       if (!user) return;
 
       try {
@@ -21,10 +23,18 @@ function MyRatings() {
       }catch(error) {
         console.error('Error fetching feedbacks!', error);
       }
+      finally {
+        setLoading(false);
+      }
 
     };
     fetchingMyRatings();
   },[user]);
+
+
+  if (loading) {
+    return <Spinner></Spinner>
+  }
 
 
   if (myRatings.length < 1) {

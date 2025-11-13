@@ -11,5 +11,106 @@
 
 /* custom css */
 .active {
-  color: red;
+  color: #fe9a00;
+}
+
+
+/* slider.css */
+/* slider.css */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slowZoom {
+  0% {
+    transform: scale(110%);
+  }
+  100% {
+    transform: scale(100%);
+  }
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) skewX(-12deg);
+  }
+  100% {
+    transform: translateX(200%) skewX(-12deg);
+  }
+}
+
+@keyframes progress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 1s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-slowZoom {
+  animation: slowZoom 5s ease-out forwards;
+}
+
+.animate-shine {
+  animation: shine 6s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.animate-progress {
+  animation: progress 5s linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+.swiper-pagination-bullet {
+  background: white;
+  opacity: 0.5;
+  width: 12px;
+  height: 12px;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background: #f59e0b;
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Pause animations when reduced motion is preferred */
+@media (prefers-reduced-motion: reduce) {
+  .animate-slowZoom,
+  .animate-shine,
+  .animate-float,
+  .animate-slideIn,
+  .animate-progress {
+    animation: none;
+  }
 }

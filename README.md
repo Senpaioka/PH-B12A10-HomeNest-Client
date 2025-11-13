@@ -1,16 +1,22 @@
-# React + Vite
+# HomeNest
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+HomeNest is a modern real estate web application designed to help users explore, manage, and share property listings with ease. It combines a sleek interface, powerful filtering options, and seamless user authentication to deliver a smooth browsing experience.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Dynamic Property Listings — Browse through a wide range of properties with real-time updates directly from the database.
+2. User Reviews & Ratings — Share your feedback on properties and view other users’ comments instantly.
+3. Property Management — Add, edit, and update your own property listings securely through your personal dashboard.
+4. Light/Dark Mode Toggle — Enjoy a customizable user interface that adapts to your viewing preferences.
+5. Fast and Responsive UI — Built with React, Tailwind CSS, and SwiperJS to ensure a fluid and mobile-friendly experience.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* Frontend: React.js, React Router, Tailwind CSS, DaisyUI, SwiperJS
+* Backend: Express.js, Node.js, MongoDB
+* Authentication: Firebase Authentication
+* Deployment: Netlify (client) & Railway (server)
 
-## Expanding the ESLint configuration
+## Live Preview
+Link: https://Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

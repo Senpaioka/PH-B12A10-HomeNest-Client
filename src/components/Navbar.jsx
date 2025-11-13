@@ -29,7 +29,7 @@ function Navbar() {
                 </div>
                 <ul
                     tabIndex="-1"
-                    className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                    className="menu menu-sm dropdown-content bg-base-100 rounded-box z-5 mt-3 w-52 p-2 shadow">
                     { menuLink }
                 </ul>
                 </div>
@@ -69,7 +69,7 @@ function Navbar() {
                         </div>
                         <ul
                         tabIndex="-1"
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-5 mt-3 w-52 p-2 shadow">
                         <li className="p-1">{user.displayName}</li>
                         <li className="p-1">{user.email}</li>
                         <li><a onClick={logoutUser} className="btn btn-soft">Logout</a></li>

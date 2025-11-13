@@ -15,8 +15,8 @@ HomeNest is a modern real estate web application designed to help users explore,
 * Frontend: React.js, React Router, Tailwind CSS, DaisyUI, SwiperJS, Motion-Framer
 * Backend: Express.js, Node.js, MongoDB
 * Authentication: Firebase Authentication
-* Deployment: Railway (client) & Railway (server)
+* Deployment: Vercel (client) & Vercel (server)
 
 ## Live Preview
-Link: https://Tech Stack
+Link: https://ph-b12-a10-home-nest-client.vercel.app/
 

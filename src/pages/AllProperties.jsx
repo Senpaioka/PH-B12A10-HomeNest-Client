@@ -38,7 +38,7 @@ function AllProperties() {
         setSortBy('');
         setOrderBy('');
         const fetched = await getSortedProperties(sortBy, orderBy);
-        setData(fetched)
+        setData(Array.isArray(fetched) ? fetched : []);
       } 
       catch(error){
         console.error(error.message);
@@ -63,7 +63,7 @@ function AllProperties() {
       try {
         setSearch('');
         const searched = await getSearchResult(search);
-        setData(searched);
+        setData(Array.isArray(searched) ? searched : []);
       }
       catch(error){
         console.error(error.message);
@@ -81,20 +81,21 @@ function AllProperties() {
   if (loading) return <Spinner></Spinner>
 
 
-  if (data.length < 1) {
+  if (!Array.isArray(data) || data.length < 1) {
     return (
-        <div className="w-10/12 mx-auto mt-[50px]">
-          <div className="flex justify-center items-center">
-            <div className="bg-base-100 p-6 text-center">
-              <h2 className="text-lg font-bold text-gray-700">No items found</h2>
-              <p className="text-gray-500 mt-2">
-                Try again nothing to see here!
-              </p>
-            </div>
+      <div className="w-10/12 mx-auto mt-[50px]">
+        <div className="flex justify-center items-center">
+          <div className="bg-base-100 p-6 text-center">
+            <h2 className="text-lg font-bold text-gray-700">No items found</h2>
+            <p className="text-gray-500 mt-2">
+              Try again, nothing to see here!
+            </p>
           </div>
         </div>
+      </div>
     );
   }
+
 
 
   return (

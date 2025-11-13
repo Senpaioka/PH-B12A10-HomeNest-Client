@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 @import "tailwindcss";
 
 @plugin "daisyui" {
@@ -14,8 +17,17 @@
   color: #fe9a00;
 }
 
+body {
+  font-family: "Inter", sans-serif;
+}
 
-/* slider.css */
+.pacifico-regular {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 /* slider.css */
 @keyframes slideIn {
   from {

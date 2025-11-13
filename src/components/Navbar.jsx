@@ -33,7 +33,7 @@ function Navbar() {
                     { menuLink }
                 </ul>
                 </div>
-                <Link to='/' className="btn btn-ghost text-xl">HomeNest</Link>
+                <Link to='/' className="btn btn-ghost text-2xl pacifico-regular">HomeNest</Link>
             </div>
 
             

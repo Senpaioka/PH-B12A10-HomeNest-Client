@@ -7,8 +7,8 @@ import { FaFacebookF } from "react-icons/fa";
 function Footer() {
   return (
     
-   <footer className="footer footer-horizontal footer-center bg-base-200 text-base-content rounded p-16 mt-[100px]">
-        <nav className="grid sm:grid-flow-col gap-4">
+   <footer className="footer footer-horizontal footer-center bg-base-200 rounded p-16 mt-[100px]">  
+        <nav className="grid sm:grid-flow-col gap-4 text-amber-500">
             <a className="link link-hover">About us</a>
             <a className="link link-hover">Contact</a>
             <a className="link link-hover">Jobs</a>
@@ -28,7 +28,7 @@ function Footer() {
             </div>
         </nav>
         <aside>
-            <p>Copyright © {new Date().getFullYear()} - All right reserved by HomeNest Ltd</p>
+            <p>Copyright © {new Date().getFullYear()} - All right reserved by <span className="pacifico-regular">HomeNest</span> Ltd</p>
         </aside>
     </footer>
     

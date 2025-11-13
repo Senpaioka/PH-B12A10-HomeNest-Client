@@ -142,7 +142,7 @@ function Home() {
               </h2>
               <p className="text-gray-500">
                 Here are some common questions about using{" "}
-                <span className="text-primary font-semibold">HomeNest</span>.
+                <span className="text-primary font-semibold pacifico-regular">HomeNest</span>.
               </p>
             </motion.div>
 

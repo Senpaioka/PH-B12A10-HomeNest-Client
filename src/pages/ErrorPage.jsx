@@ -6,6 +6,10 @@ function ErrorPage() {
   console.error(error);
 
   return (
+
+    <>
+    <title>Error</title>
+
     <div className="min-h-screen flex flex-col items-center justify-center bg-base-200 text-center px-6">
       {/* Error Icon */}
       <div className="bg-error/10 text-error p-6 rounded-full mb-6">
@@ -42,6 +46,7 @@ function ErrorPage() {
         </button>
       </div>
     </div>
+    </>
   );
 }
 

@@ -77,6 +77,10 @@ function AddProperty() {
 
   return (
 
+  <>
+
+  <title>Add Property</title>
+  
   <div className="min-h-screen bg-base-200 py-10 px-5">
   <div className="max-w-xl mx-auto bg-base-100 shadow-xl p-8 rounded-lg">
     <h2 className="text-3xl font-bold text-center text-amber-500 mb-8">
@@ -202,7 +206,8 @@ function AddProperty() {
       </button>
     </form>
   </div>
-</div>
+  </div>
+  </>
 
   );
 }

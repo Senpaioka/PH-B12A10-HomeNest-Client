@@ -98,6 +98,10 @@ function AllProperties() {
 
 
   return (
+
+    <>
+    <title>All Properties</title>
+
     <div className="w-11/12 md:w-10/12 mx-auto my-10">
       <h1 className="text-3xl font-bold text-center mb-8">All Properties</h1>
 
@@ -122,6 +126,7 @@ function AllProperties() {
         ))}
       </div>
     </div>
+    </>
   );
 }
 

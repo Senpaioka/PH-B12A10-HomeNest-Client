@@ -58,7 +58,12 @@ function MyRatings() {
   }
 
   return (
-     <div className='w-10/12 mx-auto my-[50px]'>
+
+    <>
+    
+      <title>My Ratings</title>
+
+      <div className='w-10/12 mx-auto my-[50px]'>
        
       <ul className="list bg-base-100">  
         <li className="p-4 pb-2 text-xs opacity-60 tracking-wide">Most recent reviews.</li>
@@ -82,6 +87,8 @@ function MyRatings() {
 
       </ul>
      </div>
+    </>
+
   );
 }
 

@@ -117,6 +117,12 @@ function MyProperties() {
 
 
   return (
+
+
+     <>
+
+     <title>My Properties</title>
+     
      <div className="w-10/12 mx-auto">
        MyProperties component
 
@@ -136,6 +142,7 @@ function MyProperties() {
         ))}
        </div>
      </div>
+     </>
   );
 }
 

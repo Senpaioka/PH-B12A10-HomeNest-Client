@@ -81,6 +81,10 @@ const [propertyInfo, setPropertyInfo] = useState({});
 
   return (
 
+  <>
+
+    <title>Update Info</title>
+
   <div className="min-h-screen bg-base-200 py-10 px-5">
   <div className="max-w-xl mx-auto bg-base-100 shadow-xl p-8 rounded-lg">
 
@@ -224,7 +228,8 @@ const [propertyInfo, setPropertyInfo] = useState({});
       </button>
     </form>
   </div>
-</div>
+  </div>
+  </>
 
   );
 }

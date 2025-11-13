@@ -78,6 +78,9 @@ function PropertyDetails() {
   return (
 
     <>
+
+    <title>{property.propertyName}</title>
+
     {/* rating-modal   */}
     <RatingModal propertyId={property._id}></RatingModal>
 

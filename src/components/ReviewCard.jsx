@@ -20,10 +20,10 @@ function ReviewCard({ review }) {
         {/* Reviewer + Property Info */}
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
           <div>
-            <Link to={`/details/${review.propertyInfo._id}`} className="font-semibold text-lg text-gray-800">{review.propertyInfo.propertyName}</Link>
+            <Link to={`/details/${review.propertyInfo._id}`} className="font-semibold text-lg">{review.propertyInfo.propertyName}</Link>
             <p className="text-sm text-gray-500">{review.username}</p>
           </div>
-          <p className="text-xs text-gray-400 mt-1 sm:mt-0">
+          <p className="text-xs text-gray-500 mt-1 sm:mt-0">
             {new Date(review.created_at).toLocaleDateString("en-US", {
               year: "numeric",
               month: "short",
@@ -45,7 +45,7 @@ function ReviewCard({ review }) {
         </div>
 
         {/* Review Text */}
-        <p className="text-sm text-gray-600 leading-relaxed">
+        <p className="text-sm text-gray-500 leading-relaxed">
           {review.userComment}
         </p>
       </div>

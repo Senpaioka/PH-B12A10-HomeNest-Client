@@ -135,22 +135,22 @@ function PropertyDetails() {
               <p className="text-gray-500 text-sm mb-4">{property.location}</p>
 
               <div className="flex flex-wrap gap-3 mb-6">
-                <div className="badge badge-secondary p-3 text-white">{property.category}</div>
+                <div className="badge badge-secondary bg-amber-500 border-0 p-3 text-white">{property.category}</div>
                 <div className="badge badge-outline text-lg font-semibold">
                   ${parseInt(property.price).toLocaleString()}
                 </div>
               </div>
 
-              <h3 className="text-xl font-semibold mb-2 text-primary">Description</h3>
-              <p className="text-gray-600 leading-relaxed text-justify">{property.description}</p>
+              <h3 className="text-xl font-semibold mb-2 text-amber-500">Description</h3>
+              <p className="text-gray-500 leading-relaxed text-justify">{property.description}</p>
             </div>
 
             <div className="card-actions justify-end mt-6">
               {
                 user.email === property.userInfo.email ? 
-                <Link to={`/edit/${property._id}`} className="btn btn-primary text-white">Edit</Link>  
+                <Link to={`/edit/${property._id}`} className="btn btn-primary bg-amber-500 border-0 text-white">Edit</Link>  
                 : 
-                <button onClick={openRatingModal} className="btn btn-primary text-white">Rate This</button>
+                <button onClick={openRatingModal} className="btn btn-primary bg-amber-500 border-0 text-white">Rate This</button>
               }
             </div>
           </div>

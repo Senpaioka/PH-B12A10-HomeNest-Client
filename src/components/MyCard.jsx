@@ -13,7 +13,7 @@ function MyCard({ propertyInfo, onDelete }) {
           alt={propertyInfo.propertyName}
           className="w-full h-56 object-cover"
         />
-        <div className="absolute top-3 left-3 bg-primary text-white text-xs px-3 py-1 rounded-full">
+        <div className="absolute top-3 left-3 bg-amber-500 text-white text-xs px-3 py-1 rounded-full">
           {propertyInfo.category}
         </div>
       </figure>
@@ -21,7 +21,7 @@ function MyCard({ propertyInfo, onDelete }) {
       {/* Card Body */}
       <div className="card-body p-5 flex flex-col justify-between">
         {/* Property Name */}
-        <h2 className="card-title text-xl font-semibold text-gray-800 mb-1">
+        <h2 className="card-title text-xl font-semibold mb-1">
           {propertyInfo.propertyName}
         </h2>
 
@@ -45,7 +45,7 @@ function MyCard({ propertyInfo, onDelete }) {
         </p>
 
         {/* Price */}
-        <p className="text-lg font-bold text-primary mb-1">
+        <p className="text-lg font-bold text-amber-500 mb-1">
           ${parseInt(propertyInfo.price).toLocaleString()}
         </p>
 

@@ -2,11 +2,17 @@ import { useState, useEffect } from "react";
 import {useAuth} from '../hooks/useAuth';
 import MyCard from "../components/MyCard";
 import Swal from 'sweetalert2'
+import { motion } from "motion/react"
 
 // api calling
 import {getMyProperties} from '../api/fetching';
 import { deleteProperty } from "../api/updating";
 import Spinner from "../components/Spinner";
+
+
+
+
+
 
 function MyProperties() {
 
@@ -117,11 +123,25 @@ function MyProperties() {
 
        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {
-        property.map(item => <MyCard propertyInfo={item} key={item._id} onDelete={handleDeleteProperty}></MyCard>)
-        }
+          property.map((item, index) => (
+            <motion.div
+              className="flex"
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+          <MyCard propertyInfo={item} key={item._id} onDelete={handleDeleteProperty}></MyCard>
+          </motion.div>
+        ))}
        </div>
      </div>
   );
 }
 
 export default MyProperties;
+
+
+
+

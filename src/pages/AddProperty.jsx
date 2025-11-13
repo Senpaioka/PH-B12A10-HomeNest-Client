@@ -102,7 +102,7 @@ function AddProperty() {
               <label className="label font-semibold">Category</label>
               <select
                 name="category"
-                className="w-full bg-gray-100 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full bg-gray-500 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
                 value={formData.category}
                 onChange={handleChange}
                 required
@@ -177,7 +177,7 @@ function AddProperty() {
                 <label className="label font-semibold">User Name</label>
                 <input
                   type="text"
-                  className="w-full bg-gray-100 rounded-lg px-4 py-2 focus:outline-none"
+                  className="w-full bg-gray-500 rounded-lg px-4 py-2 focus:outline-none"
                   value={user?.displayName || "Anonymous"}
                   readOnly
                 />
@@ -186,7 +186,7 @@ function AddProperty() {
                 <label className="label font-semibold">User Email</label>
                 <input
                   type="email"
-                  className="w-full bg-gray-100 rounded-lg px-4 py-2 focus:outline-none"
+                  className="w-full bg-gray-500 rounded-lg px-4 py-2 focus:outline-none"
                   value={user?.email || "N/A"}
                   readOnly
                 />

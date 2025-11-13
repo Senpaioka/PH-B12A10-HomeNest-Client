@@ -50,7 +50,7 @@ function SortSearchCard({ onSortChange, onOrderChange, onSearch }) {
           className="input input-bordered w-full sm:w-64"
           required
         />
-        <button type="submit" className="btn btn-primary text-white">
+        <button type="submit" className="btn btn-primary bg-amber-500 border-none text-white">
           Search
         </button>
       </form>

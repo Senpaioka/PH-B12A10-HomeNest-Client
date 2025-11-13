@@ -50,7 +50,7 @@ function RatingModal({propertyId}) {
                      <textarea className="textarea w-full textarea-bordered" placeholder="Write your feedback..." value={feedback} onChange={(e) => setFeedback(e.target.value)} required></textarea>
                     {
                         rating < 1 ?
-                        <button className="btn btn-primary text-black" disabled>Give a rating first</button>
+                        <button className="btn btn-primary" disabled>Give a rating first</button>
                         :
                         <button className="btn btn-primary text-white">Feedback</button>
                     }

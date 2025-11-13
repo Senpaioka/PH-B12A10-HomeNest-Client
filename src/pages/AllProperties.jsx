@@ -3,8 +3,12 @@ import { useLoaderData } from "react-router";
 import Card from "../components/Card";
 import SortSearchCard from "../components/SortSearchCard";
 import Spinner from '../components/Spinner';
+import { motion } from "motion/react"
+
 // api call
 import {getSortedProperties, getSearchResult} from '../api/fetching';
+
+
 
 function AllProperties() {
 
@@ -95,7 +99,7 @@ function AllProperties() {
 
   return (
     <div className="w-11/12 md:w-10/12 mx-auto my-10">
-      <h1 className="text-3xl font-bold text-center mb-8 text-primary">All Properties</h1>
+      <h1 className="text-3xl font-bold text-center mb-8">All Properties</h1>
 
       <SortSearchCard 
       onSortChange={handleSortChange} 
@@ -103,17 +107,22 @@ function AllProperties() {
       onSearch={handleSearch} />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-
         {
-          data.map((item) => (<Card propertyInfo={item} key={item._id} />))
-        }
-
+          data.map((item, index) => (
+            <motion.div
+                    className="flex"
+                    key={index}
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+          <Card propertyInfo={item} key={item._id} />
+          </motion.div>
+        ))}
       </div>
     </div>
   );
 }
 
 export default AllProperties;
-
-
-

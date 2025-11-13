@@ -113,7 +113,7 @@ const [propertyInfo, setPropertyInfo] = useState({});
               type="text"
               name="propertyName"
               placeholder="Enter property name"
-              className="w-full bg-gray-100 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full bg-gray-500 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
               value={propertyInfo.propertyName || ""}
               onChange={handleChange}
               required
@@ -125,7 +125,7 @@ const [propertyInfo, setPropertyInfo] = useState({});
             <label className="label font-semibold">Category</label>
             <select
               name="category"
-              className="w-full bg-gray-100 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full bg-gray-500 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
               value={propertyInfo.category || ""}
               onChange={handleChange}
               required
@@ -145,7 +145,7 @@ const [propertyInfo, setPropertyInfo] = useState({});
               type="number"
               name="price"
               placeholder="Enter property price"
-              className="w-full bg-gray-100 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full bg-gray-500 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
               value={propertyInfo.price || ""}
               onChange={handleChange}
               required
@@ -159,7 +159,7 @@ const [propertyInfo, setPropertyInfo] = useState({});
               type="text"
               name="location"
               placeholder="Enter city, area, or address"
-              className="w-full bg-gray-100 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full bg-gray-500 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
               value={propertyInfo.location || ""}
               onChange={handleChange}
               required
@@ -173,7 +173,7 @@ const [propertyInfo, setPropertyInfo] = useState({});
               type="url"
               name="image"
               placeholder="https://example.com/image.jpg"
-              className="w-full bg-gray-100 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full bg-gray-500 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
               value={propertyInfo.image || ""}
               onChange={handleChange}
               required
@@ -186,7 +186,7 @@ const [propertyInfo, setPropertyInfo] = useState({});
             <textarea
               name="description"
               placeholder="Enter property details, size, amenities, etc."
-              className="w-full bg-gray-100 rounded-lg px-4 py-2 min-h-[100px] focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full bg-gray-500 rounded-lg px-4 py-2 min-h-[100px] focus:outline-none focus:ring-2 focus:ring-primary"
               value={propertyInfo.description || ""}
               onChange={handleChange}
               required
@@ -199,7 +199,7 @@ const [propertyInfo, setPropertyInfo] = useState({});
               <label className="label font-semibold">User Name</label>
               <input
                 type="text"
-                className="w-full bg-gray-100 rounded-lg px-4 py-2 focus:outline-none"
+                className="w-full bg-gray-500 rounded-lg px-4 py-2 focus:outline-none"
                 value={propertyInfo.userInfo?.name || "Anonymous"}
                 readOnly
               />
@@ -208,7 +208,7 @@ const [propertyInfo, setPropertyInfo] = useState({});
               <label className="label font-semibold">User Email</label>
               <input
                 type="email"
-                className="w-full bg-gray-100 rounded-lg px-4 py-2 focus:outline-none"
+                className="w-full bg-gray-500 rounded-lg px-4 py-2 focus:outline-none"
                 value={propertyInfo.userInfo?.email || "N/A"}
                 readOnly
               />

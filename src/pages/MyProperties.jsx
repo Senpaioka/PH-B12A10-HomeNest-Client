@@ -16,7 +16,7 @@ import Spinner from "../components/Spinner";
 
 function MyProperties() {
 
-  const {user} = useAuth();
+  const {user, isLoading} = useAuth();
   const [property, setProperty] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -93,7 +93,6 @@ function MyProperties() {
         }
       });
   }
-
 
 
   if (loading) {

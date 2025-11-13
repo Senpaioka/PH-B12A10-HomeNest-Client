@@ -81,150 +81,151 @@ const [propertyInfo, setPropertyInfo] = useState({});
 
   return (
 
-    <div className="min-h-screen bg-base-200 py-10 px-5">
-      <div className="max-w-xl mx-auto bg-base-100 shadow-xl p-8 rounded-lg">
+  <div className="min-h-screen bg-base-200 py-10 px-5">
+  <div className="max-w-xl mx-auto bg-base-100 shadow-xl p-8 rounded-lg">
 
-        <button
-          onClick={() => navigate(-1)}
-          className="btn btn-outline mb-6 flex items-center gap-2"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="2"
-            stroke="currentColor"
-            className="w-5 h-5"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-          </svg>
-          Back
-        </button>
+    <button
+      onClick={() => navigate(-1)}
+      className="btn btn-outline mb-6 flex items-center gap-2"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth="2"
+        stroke="currentColor"
+        className="w-5 h-5"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+      </svg>
+      Back
+    </button>
 
-        <h2 className="text-3xl font-bold text-center text-primary mb-8">
-          Edit Property
-        </h2>
+    <h2 className="text-3xl font-bold text-center text-primary mb-8">
+      Edit Property
+    </h2>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-          {/* Property Name */}
-          <div>
-            <label className="label font-semibold">Property Name</label>
-            <input
-              type="text"
-              name="propertyName"
-              placeholder="Enter property name"
-              className="w-full bg-gray-500 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
-              value={propertyInfo.propertyName || ""}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          {/* Category Dropdown */}
-          <div>
-            <label className="label font-semibold">Category</label>
-            <select
-              name="category"
-              className="w-full bg-gray-500 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
-              value={propertyInfo.category || ""}
-              onChange={handleChange}
-              required
-            >
-              <option value="">Select Category</option>
-              <option>Rent</option>
-              <option>Sale</option>
-              <option>Commercial</option>
-              <option>Land</option>
-            </select>
-          </div>
-
-          {/* Price */}
-          <div>
-            <label className="label font-semibold">Price ($)</label>
-            <input
-              type="number"
-              name="price"
-              placeholder="Enter property price"
-              className="w-full bg-gray-500 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
-              value={propertyInfo.price || ""}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          {/* Location */}
-          <div>
-            <label className="label font-semibold">Location</label>
-            <input
-              type="text"
-              name="location"
-              placeholder="Enter city, area, or address"
-              className="w-full bg-gray-500 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
-              value={propertyInfo.location || ""}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          {/* Image Link */}
-          <div>
-            <label className="label font-semibold">Image URL</label>
-            <input
-              type="url"
-              name="image"
-              placeholder="https://example.com/image.jpg"
-              className="w-full bg-gray-500 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
-              value={propertyInfo.image || ""}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          {/* Description */}
-          <div>
-            <label className="label font-semibold">Description</label>
-            <textarea
-              name="description"
-              placeholder="Enter property details, size, amenities, etc."
-              className="w-full bg-gray-500 rounded-lg px-4 py-2 min-h-[100px] focus:outline-none focus:ring-2 focus:ring-primary"
-              value={propertyInfo.description || ""}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          {/* User Info */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className="label font-semibold">User Name</label>
-              <input
-                type="text"
-                className="w-full bg-gray-500 rounded-lg px-4 py-2 focus:outline-none"
-                value={propertyInfo.userInfo?.name || "Anonymous"}
-                readOnly
-              />
-            </div>
-            <div>
-              <label className="label font-semibold">User Email</label>
-              <input
-                type="email"
-                className="w-full bg-gray-500 rounded-lg px-4 py-2 focus:outline-none"
-                value={propertyInfo.userInfo?.email || "N/A"}
-                readOnly
-              />
-            </div>
-          </div>
-
-          {/* Submit Button */}
-          <button
-            type="submit"
-            className="btn btn-primary text-white w-full mt-2"
-          >
-            Save Changes
-          </button>
-        </form>
+    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+      {/* Property Name */}
+      <div>
+        <label className="label font-semibold">Property Name</label>
+        <input
+          type="text"
+          name="propertyName"
+          placeholder="Enter property name"
+          className="w-full border border-gray-400 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary bg-transparent text-gray-500 placeholder-gray-400"
+          value={propertyInfo.propertyName || ""}
+          onChange={handleChange}
+          required
+        />
       </div>
-    </div>
+
+      {/* Category Dropdown */}
+      <div>
+        <label className="label font-semibold">Category</label>
+        <select
+          name="category"
+          className="w-full border border-gray-400 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary bg-transparent text-gray-500"
+          value={propertyInfo.category || ""}
+          onChange={handleChange}
+          required
+        >
+          <option value="">Select Category</option>
+          <option>Rent</option>
+          <option>Sale</option>
+          <option>Commercial</option>
+          <option>Land</option>
+        </select>
+      </div>
+
+      {/* Price */}
+      <div>
+        <label className="label font-semibold">Price ($)</label>
+        <input
+          type="number"
+          name="price"
+          placeholder="Enter property price"
+          className="w-full border border-gray-400 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary bg-transparent text-gray-500 placeholder-gray-400"
+          value={propertyInfo.price || ""}
+          onChange={handleChange}
+          required
+        />
+      </div>
+
+      {/* Location */}
+      <div>
+        <label className="label font-semibold">Location</label>
+        <input
+          type="text"
+          name="location"
+          placeholder="Enter city, area, or address"
+          className="w-full border border-gray-400 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary bg-transparent text-gray-500 placeholder-gray-400"
+          value={propertyInfo.location || ""}
+          onChange={handleChange}
+          required
+        />
+      </div>
+
+      {/* Image Link */}
+      <div>
+        <label className="label font-semibold">Image URL</label>
+        <input
+          type="url"
+          name="image"
+          placeholder="https://example.com/image.jpg"
+          className="w-full border border-gray-400 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary bg-transparent text-gray-500 placeholder-gray-400"
+          value={propertyInfo.image || ""}
+          onChange={handleChange}
+          required
+        />
+      </div>
+
+      {/* Description */}
+      <div>
+        <label className="label font-semibold">Description</label>
+        <textarea
+          name="description"
+          placeholder="Enter property details, size, amenities, etc."
+          className="w-full border border-gray-400 rounded-lg px-4 py-2 min-h-[100px] focus:outline-none focus:ring-2 focus:ring-primary bg-transparent text-gray-500 placeholder-gray-400"
+          value={propertyInfo.description || ""}
+          onChange={handleChange}
+          required
+        />
+      </div>
+
+      {/* User Info */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label className="label font-semibold">User Name</label>
+          <input
+            type="text"
+            className="w-full border border-gray-400 rounded-lg px-4 py-2 focus:outline-none bg-transparent text-gray-500 placeholder-gray-400"
+            value={propertyInfo.userInfo?.name || "Anonymous"}
+            readOnly
+          />
+        </div>
+        <div>
+          <label className="label font-semibold">User Email</label>
+          <input
+            type="email"
+            className="w-full border border-gray-400 rounded-lg px-4 py-2 focus:outline-none bg-transparent text-gray-500 placeholder-gray-400"
+            value={propertyInfo.userInfo?.email || "N/A"}
+            readOnly
+          />
+        </div>
+      </div>
+
+      {/* Submit Button */}
+      <button
+        type="submit"
+        className="btn btn-primary text-white w-full mt-2"
+      >
+        Save Changes
+      </button>
+    </form>
+  </div>
+</div>
+
   );
 }
 

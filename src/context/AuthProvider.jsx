@@ -15,8 +15,9 @@ provider.addScope('profile');
 function AuthProvider({children}) {
 
     const [user, setUser] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const [isError, setIsError] = useState('');
+    const [initialized, setInitialized] = useState(false);
 
 
     // gmail authentication
@@ -113,6 +114,9 @@ function AuthProvider({children}) {
 
     // tracking user
     useEffect(() => {
+        
+        let fallbackTimer = null;
+
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
         if (currentUser) {
             // Ensure we have the email from any available source
@@ -123,12 +127,25 @@ function AuthProvider({children}) {
             
             setUser({ ...currentUser, email: userEmail });
             setIsLoading(false);
+            setInitialized(true);
+            if (fallbackTimer) clearTimeout(fallbackTimer);
         } else {
             setUser(null);
         }
     });
 
-    return () => unsubscribe();
+
+    // optional fallback: stop loading after 5s if onAuthStateChanged didn't fire
+    fallbackTimer = setTimeout(() => {
+    console.warn("Auth init timeout — falling back to not-loading.");
+    setIsLoading(false);
+    setInitialized(true);
+    }, 5000);
+
+    return () => {
+      if (fallbackTimer) clearTimeout(fallbackTimer);
+      unsubscribe();
+    };
     }, []);
 
 
@@ -137,6 +154,7 @@ function AuthProvider({children}) {
     const authInfo = {
         user,
         isLoading,
+        initialized,
         isError,
         signInWithGmail,
         logoutUser,

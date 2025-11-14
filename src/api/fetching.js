@@ -109,7 +109,7 @@ async function getSearchResult(query) {
 
     try {
 
-        const response = await axios.get(`${BASE_URL}/searched?q=${encodeURIComponent(query)}`);
+        const response = await axios.get(`${BASE_URL}/searched?q=${query}`);
         return response.data;
 
     } catch (error) {

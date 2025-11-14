@@ -58,9 +58,9 @@ function AllProperties() {
       
       if (!search) return;
 
-      setLoading(true);
-
+      
       try {
+        setLoading(true);
         setSearch('');
         const searched = await getSearchResult(search);
         setData(Array.isArray(searched) ? searched : []);

@@ -8,21 +8,6 @@ function Navbar() {
 
     const { user, logoutUser } = useAuth();
 
-//     const menuLink = (
-//     <>
-//         <li><NavLink to='/'>Home</NavLink></li>
-//         <li><NavLink to='/all-properties'>All Properties</NavLink></li>
-//         <li><NavLink to='/about-us'>About Us</NavLink></li>
-//         {
-//             user && (
-//                 <li><NavLink to='/my-properties'>My Properties</NavLink></li>
-//                 <li><NavLink to='/my-ratings'>My Ratings</NavLink></li>
-//                 <li><NavLink to='/add-property'>Add Properties</NavLink></li>
-//             )
-//         }
-//     </>
-//   )
-
     const menuLink = (
     <>
         <li><NavLink to="/">Home</NavLink></li>
@@ -92,8 +77,8 @@ function Navbar() {
                         <ul
                         tabIndex="-1"
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-5 mt-3 w-52 p-2 shadow">
-                        <li className="p-1">{user.displayName}</li>
-                        <li className="p-1">{user.email}</li>
+                        <li className="p-1">@{user.displayName}</li>
+                        <Link to='/dashboard' className="px-5 py-2">Dashboard</Link>
                         <li><a onClick={logoutUser} className="btn btn-soft bg-red-400 text-white">Logout</a></li>
                         </ul>
                     </div>   

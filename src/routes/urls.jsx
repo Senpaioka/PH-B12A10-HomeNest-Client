@@ -8,12 +8,14 @@ import Register from '../auth/Registration';
 import Login from '../auth/Login';
 import AddProperty from "../pages/AddProperty";
 import AboutUs from "../pages/AboutUs";
+import Dashboard from "../Dashboard";
 
 const AllProperties = lazy(() => import('../pages/AllProperties'));
 const MyProperties = lazy(() => import('../pages/MyProperties'));
 const MyRatings = lazy(() => import('../pages/MyRatings'));
 const PropertyDetails = lazy(() => import('../pages/PropertyDetails'));
 const PropertyEdit = lazy(() => import('../pages/PropertyEdit'));
+const DashboardHome = lazy(() => import('../pages/dashboard/DashboardHome'));
 
 import {PrivateRoute} from '../context/PrivateRoute';
 
@@ -92,9 +94,6 @@ const router = createBrowserRouter([
             </Suspense>
           </PrivateRoute>
           ),
-          // loader: async({params}) => {
-          //   return getUserFeedbacks(params.propertyId);
-          // },
         },
         {
           path: 'edit/:propertyId',
@@ -107,6 +106,26 @@ const router = createBrowserRouter([
           ),
         },
     ]
+  },
+
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <Suspense fallback={<Spinner></Spinner>}>
+            <Dashboard></Dashboard>
+        </Suspense>
+      </PrivateRoute>
+    ),
+    errorElement: <ErrorPage></ErrorPage>,
+    hydrateFallbackElement: <Spinner></Spinner>,
+
+    children: [
+      {
+        index: true,
+        Component: DashboardHome,
+      }
+    ],
   },
 ]);
 

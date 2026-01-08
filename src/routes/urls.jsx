@@ -7,6 +7,7 @@ import Home from '../pages/Home';
 import Register from '../auth/Registration';
 import Login from '../auth/Login';
 import AddProperty from "../pages/AddProperty";
+import AboutUs from "../pages/AboutUs";
 
 const AllProperties = lazy(() => import('../pages/AllProperties'));
 const MyProperties = lazy(() => import('../pages/MyProperties'));
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
           index: true,
           Component: Home,
           loader: getAllProperties,
+        },
+        {
+          path: 'about-us',
+          Component: AboutUs,
         },
         {
           path: 'registration',

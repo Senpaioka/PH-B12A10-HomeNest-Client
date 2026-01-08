@@ -8,18 +8,40 @@ function Navbar() {
 
     const { user, logoutUser } = useAuth();
 
+//     const menuLink = (
+//     <>
+//         <li><NavLink to='/'>Home</NavLink></li>
+//         <li><NavLink to='/all-properties'>All Properties</NavLink></li>
+//         <li><NavLink to='/about-us'>About Us</NavLink></li>
+//         {
+//             user && (
+//                 <li><NavLink to='/my-properties'>My Properties</NavLink></li>
+//                 <li><NavLink to='/my-ratings'>My Ratings</NavLink></li>
+//                 <li><NavLink to='/add-property'>Add Properties</NavLink></li>
+//             )
+//         }
+//     </>
+//   )
+
     const menuLink = (
     <>
-        <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/all-properties'>All Properties</NavLink></li>
-        <li><NavLink to='/my-properties'>My Properties</NavLink></li>
-        <li><NavLink to='/my-ratings'>My Ratings</NavLink></li>
-        <li><NavLink to='/add-property'>Add Properties</NavLink></li>
+        <li><NavLink to="/">Home</NavLink></li>
+        <li><NavLink to="/all-properties">All Properties</NavLink></li>
+        <li><NavLink to="/about-us">About Us</NavLink></li>
+
+        {user && (
+        <>
+            <li><NavLink to="/my-properties">My Properties</NavLink></li>
+            <li><NavLink to="/my-ratings">My Ratings</NavLink></li>
+            <li><NavLink to="/add-property">Add Properties</NavLink></li>
+        </>
+        )}
     </>
-  )
+    );
+
 
     return (
-        <div className="bg-base-100 shadow-sm">
+        <div className="bg-base-100 shadow-sm sticky top-0 z-50">
         <div className="navbar w-10/12 sm:mx-auto flex-col sm:flex-row">
 
             <div className="navbar-start justify-center">

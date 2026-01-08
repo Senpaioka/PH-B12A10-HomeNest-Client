@@ -20,7 +20,7 @@ function ReviewCard({ review }) {
         {/* Reviewer + Property Info */}
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
           <div>
-            <Link to={`/details/${review.propertyInfo._id}`} className="font-semibold text-lg">{review.propertyInfo.propertyName}</Link>
+            <Link to={`/dashboard/details/${review.propertyInfo._id}`} className="font-semibold text-lg">{review.propertyInfo.propertyName}</Link>
             <p className="text-sm text-gray-500">{review.username}</p>
           </div>
           <p className="text-xs text-gray-500 mt-1 sm:mt-0">

@@ -63,8 +63,8 @@ function MyCard({ propertyInfo, onDelete }) {
 
         {/* Buttons Section */}
         <div className="flex flex-wrap gap-2 mt-2">
-          <Link to={`/details/${propertyInfo._id}`} className="btn btn-sm btn-primary text-white flex-1"> Details </Link>
-          <Link to={`/edit/${propertyInfo._id}`} className="btn btn-sm btn-outline flex-1"> Update </Link>
+          <Link to={`/dashboard/details/${propertyInfo._id}`} className="btn btn-sm btn-primary text-white flex-1"> Details </Link>
+          <Link to={`/dashboard/edit/${propertyInfo._id}`} className="btn btn-sm btn-outline flex-1"> Update </Link>
 
           <button onClick={() => onDelete(propertyInfo._id)} className="btn btn-sm btn-error text-white flex-1"> Delete </button>
         </div>

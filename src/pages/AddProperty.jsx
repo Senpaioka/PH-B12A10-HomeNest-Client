@@ -52,7 +52,7 @@ function AddProperty() {
       });
 
       // redirect
-      navigate('/my-properties');
+      navigate('/dashboard/my-properties');
 
       
 

@@ -151,7 +151,7 @@ function PropertyDetails() {
             <div className="card-actions justify-end mt-6">
               {
                 user.email === property.userInfo.email ? 
-                <Link to={`/edit/${property._id}`} className="btn btn-primary bg-amber-500 border-0 text-white">Edit</Link>  
+                <Link to={`/dashboard/edit/${property._id}`} className="btn btn-primary bg-amber-500 border-0 text-white">Edit</Link>  
                 : 
                 <button onClick={openRatingModal} className="btn btn-primary bg-amber-500 border-0 text-white">Rate This</button>
               }

@@ -49,7 +49,7 @@ function Card({ propertyInfo }) {
 
         {/* Action Button */}
         <div className="mt-4">
-          <Link to={`/details/${propertyInfo._id}`} className="btn btn-primary bg-amber-500 border-none outline-0 w-full text-white">See Details</Link>
+          <Link to={`/dashboard/details/${propertyInfo._id}`} className="btn btn-primary bg-amber-500 border-none outline-0 w-full text-white">See Details</Link>
         </div>
       </div>
     </div>

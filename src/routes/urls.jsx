@@ -57,54 +57,6 @@ const router = createBrowserRouter([
           ),
           loader: getAllProperties,
         },
-        {
-          path: 'my-properties',
-          element: (
-          <PrivateRoute>
-            <Suspense fallback={<Spinner></Spinner>}>
-                <MyProperties></MyProperties>
-            </Suspense>
-          </PrivateRoute>
-          )
-        },
-        {
-          path: 'my-ratings',
-          element: (
-          <PrivateRoute>
-            <Suspense fallback={<Spinner></Spinner>}>
-                <MyRatings></MyRatings>
-            </Suspense>
-          </PrivateRoute>
-          )
-        },
-        {
-          path: 'add-property',
-          element: (
-            <PrivateRoute>
-              <AddProperty></AddProperty>
-            </PrivateRoute>
-          )
-        },
-        {
-          path: 'details/:propertyId',
-          element: (
-          <PrivateRoute>
-            <Suspense fallback={<Spinner></Spinner>}>
-                <PropertyDetails></PropertyDetails> {/* force re-render */}
-            </Suspense>
-          </PrivateRoute>
-          ),
-        },
-        {
-          path: 'edit/:propertyId',
-          element: (
-          <PrivateRoute>
-            <Suspense fallback={<Spinner></Spinner>}>
-                <PropertyEdit></PropertyEdit>
-            </Suspense>
-          </PrivateRoute>
-          ),
-        },
     ]
   },
 
@@ -124,7 +76,47 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: DashboardHome,
-      }
+      },
+      {
+        path: 'my-properties',
+        element: (
+          <Suspense fallback={<Spinner></Spinner>}>
+              <MyProperties></MyProperties>
+          </Suspense>
+        )
+      },
+      {
+        path: 'my-ratings',
+        element: (
+          <Suspense fallback={<Spinner></Spinner>}>
+              <MyRatings></MyRatings>
+          </Suspense>
+        )
+      },
+      {
+        path: 'add-property',
+        element: (
+          <Suspense fallback={<Spinner></Spinner>}>
+              <AddProperty></AddProperty>
+          </Suspense>
+        )
+      },
+      {
+        path: 'edit/:propertyId',
+        element: (
+          <Suspense fallback={<Spinner></Spinner>}>
+              <PropertyEdit></PropertyEdit>
+          </Suspense>
+        ),
+      },
+      {
+        path: 'details/:propertyId',
+        element: (
+          <Suspense fallback={<Spinner></Spinner>}>
+              <PropertyDetails></PropertyDetails>
+          </Suspense>
+        ),
+      },
     ],
   },
 ]);

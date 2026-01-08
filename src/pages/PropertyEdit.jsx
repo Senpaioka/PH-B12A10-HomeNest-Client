@@ -50,7 +50,7 @@ const [propertyInfo, setPropertyInfo] = useState({});
 
     try {
       await updateProperty(user, propertyInfo, propertyId);
-      navigate(`/details/${propertyId}`);
+      navigate(`/dashboard/details/${propertyId}`);
 
       // alert
       Swal.fire({

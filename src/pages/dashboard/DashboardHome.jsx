@@ -140,63 +140,32 @@ function DashboardHome() {
       </section>
 
       {/* Tips Section */}
-      {/* <section className="bg-gradient-to-r from-amber-50 to-amber-100 dark:from-amber-900/20 dark:to-amber-800/20 rounded-xl p-6">
-        <h2 className="text-2xl font-semibold mb-4 text-amber-800 dark:text-amber-200">
-          💡 Pro Tips for Better Listings
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="flex items-start gap-3">
-            <div className="w-6 h-6 bg-amber-500 rounded-full flex items-center justify-center text-white text-sm font-bold">1</div>
-            <p className="text-sm text-amber-800 dark:text-amber-200">
-              Add high-quality photos to get 3x more views on your property listings.
-            </p>
-          </div>
-          <div className="flex items-start gap-3">
-            <div className="w-6 h-6 bg-amber-500 rounded-full flex items-center justify-center text-white text-sm font-bold">2</div>
-            <p className="text-sm text-amber-800 dark:text-amber-200">
-              Write detailed descriptions to help buyers understand your property better.
-            </p>
-          </div>
-          <div className="flex items-start gap-3">
-            <div className="w-6 h-6 bg-amber-500 rounded-full flex items-center justify-center text-white text-sm font-bold">3</div>
-            <p className="text-sm text-amber-800 dark:text-amber-200">
-              Respond to inquiries quickly to increase your chances of closing deals.
-            </p>
-          </div>
-          <div className="flex items-start gap-3">
-            <div className="w-6 h-6 bg-amber-500 rounded-full flex items-center justify-center text-white text-sm font-bold">4</div>
-            <p className="text-sm text-amber-800 dark:text-amber-200">
-              Keep your property information updated to maintain buyer interest.
-            </p>
-          </div>
-        </div>
-      </section> */}
       <section className="rounded-xl p-6 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800">
-  <h2 className="text-2xl font-semibold mb-6 text-amber-900 dark:text-amber-200">
-    Pro Tips for Better Listings
-  </h2>
+        <h2 className="text-2xl font-semibold mb-6 text-amber-900 dark:text-amber-200">
+          Pro Tips for Better Listings
+        </h2>
 
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-    {[
-      "Add high-quality photos to get 3x more views on your property listings.",
-      "Write detailed descriptions to help buyers understand your property better.",
-      "Respond to inquiries quickly to increase your chances of closing deals.",
-      "Keep your property information updated to maintain buyer interest.",
-    ].map((text, index) => (
-      <div
-        key={index}
-        className="flex items-start gap-3 p-4 rounded-lg bg-white dark:bg-amber-800/30 shadow-sm"
-      >
-        <div className="w-6 h-6 bg-amber-600 rounded-full flex items-center justify-center text-white text-sm font-bold shrink-0">
-          {index + 1}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {[
+            "Add high-quality photos to get 3x more views on your property listings.",
+            "Write detailed descriptions to help buyers understand your property better.",
+            "Respond to inquiries quickly to increase your chances of closing deals.",
+            "Keep your property information updated to maintain buyer interest.",
+          ].map((text, index) => (
+            <div
+              key={index}
+              className="flex items-start gap-3 p-4 rounded-lg bg-white dark:bg-amber-800/30 shadow-sm"
+            >
+              <div className="w-6 h-6 bg-amber-600 rounded-full flex items-center justify-center text-white text-sm font-bold shrink-0">
+                {index + 1}
+              </div>
+              <p className="text-sm text-gray-800 dark:text-amber-100 leading-relaxed">
+                {text}
+              </p>
+            </div>
+          ))}
         </div>
-        <p className="text-sm text-gray-800 dark:text-amber-100 leading-relaxed">
-          {text}
-        </p>
-      </div>
-    ))}
-  </div>
-</section>
+      </section>
 
     </div>
   );

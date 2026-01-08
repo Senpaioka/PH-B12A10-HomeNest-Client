@@ -20,3 +20,10 @@ HomeNest is a modern real estate web application designed to help users explore,
 ## Live Preview
 Link: https://ph-b12-a10-home-nest-client.vercel.app/
 
+
+## Credentials
+
+```
+Email: test@mail.com
+Password: User@26
+```

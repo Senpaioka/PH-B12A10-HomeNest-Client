@@ -20,6 +20,7 @@ HomeNest is a modern real estate web application designed to help users explore,
 ## Live Preview
 Link: https://ph-b12-a10-home-nest-client.vercel.app/
 
+Backend: https://github.com/Senpaioka/PH-B12A10-HomeNest-Server
 
 ## Credentials
 
